@@ -1,0 +1,36 @@
+#include<math.h>
+double f(double x, double y)
+{
+ return(log(x+y));
+}
+void main()
+{
+ double x0,y0,x1,y10,h,x,e,y11;
+ int i= 0;
+ double f(double,double);
+ clrscr();
+ printf("Enter initial roots \n");
+ scanf("%lf%lf",&x0,&y0);
+ printf("Enter the value of x for which you have to find y>
+ scanf("%lf",&x);
+ printf("Enter the value of increment (h) ");
+ scanf("%lf",&h);
+ printf("Enter degree of accuracy ");
+ scanf("%lf",&e);
+
+ while(x0<=x)
+ {
+  printf("x%d = %lf     y%d= %lf\n\n" ,i,x0,i,y0);
+  y10 = y0 + h*f(x0,y0);
+  while((y10-y0) <= e)
+  {
+   y11 = y0+(h/2)*(f(x0,y0)+f(x0+h,y0+y10));
+   y10 = y11;
+  }
+  y0 = y10;
+  x0 = x0 + h;
+  i++;
+  delay(500);
+  }
+  getch();
+  }
